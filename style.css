@@ -54,33 +54,36 @@ header p { font-size: 1rem; }
 /* ===========================
    HOBBIES
 =========================== */
-/* Conteneur global des hobbies */
 .hobbies {
     background-color: #f1f5f9;
     border-radius: 12px;
     padding: 2rem;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     margin-top: 2rem;
-
     display: flex;
     flex-direction: column;
-    align-items: center; /* ✅ centre le slider horizontalement */
+    align-items: center;
 }
 
-/* Slider horizontal */
+.hobbies h3 {
+    color: #2563eb;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+/* === Slider des hobbies (version finale responsive) === */
 .hobby-slider {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    gap: 1.5rem;
+    gap: 1.2rem;
     scroll-behavior: smooth;
-    padding-bottom: 1rem;
-
-    justify-content: center; /* ✅ centre les cartes horizontalement */
-    align-items: flex-start; /* évite l'étirement vertical */
+    scroll-snap-type: x mandatory;
 }
 
-
+/* Apparence des cartes */
 .hobby-card {
     flex: 0 0 220px;
     background-color: white;
@@ -88,20 +91,53 @@ header p { font-size: 1rem; }
     padding: 1rem;
     text-align: center;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-
     display: flex;
     flex-direction: column;
-    justify-content: center; /* ✅ centre verticalement le contenu */
-    align-items: center;     /* ✅ centre horizontalement le contenu */
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: center;
 }
 
 .hobby-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
 .hobby-card h4 { color: #1e3a8a; margin-bottom: 0.5rem; font-size: 1rem; }
 .hobby-card p { font-size: 0.85rem; color: #475569; }
 .hobby-icon { width: 36px; height: 36px; margin-bottom: 0.5rem; }
+
+/* Scrollbar esthétique */
 .hobby-slider::-webkit-scrollbar { height: 6px; }
 .hobby-slider::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; }
 .hobby-slider::-webkit-scrollbar-track { background: #e2e8f0; }
+
+/* === Responsive : MOBILE === */
+@media (max-width: 900px) {
+    .hobby-slider {
+        justify-content: flex-start;
+        padding-left: 0.8rem;
+        scroll-padding-left: 0.8rem;
+    }
+
+    .hobby-card:first-child {
+        margin-left: 0.2rem;
+    }
+
+    .hobby-card:last-child {
+        margin-right: 0.8rem;
+    }
+}
+
+/* === Responsive : PC === */
+@media (min-width: 901px) {
+    .hobby-slider {
+        justify-content: center;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .hobby-card:first-child,
+    .hobby-card:last-child {
+        margin: 0;
+    }
+}
 
 /* ===========================
    PROJETS ACADÉMIQUES
@@ -109,9 +145,21 @@ header p { font-size: 1rem; }
 .projects { padding: 3rem 1rem; background-color: #ffffff; text-align: center; }
 .projects h2 { color: #2563eb; margin-bottom: 1.5rem; font-size: 1.5rem; }
 .project-slider {
-    display: flex; flex-wrap: nowrap; overflow-x: auto;
-    gap: 1rem; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding: 0.5rem 0;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 0.5rem 0;
+    justify-content: center;
 }
+@media (min-width: 1200px) {
+    .project-slider {
+        justify-content: center;
+    }
+}
+
 .project-card {
     flex: 0 0 280px; scroll-snap-align: center;
     background-color: #f1f5f9; border-radius: 12px;
@@ -164,4 +212,86 @@ footer p { font-size: 0.85rem; color: #475569; }
     .project-card h3 { font-size: 1rem; }
     .project-cover, .project-video { max-height: 150px; }
     .rlbot-cover { height: 100px; }
+}
+
+/* ===========================
+   RESPONSIVE SUPPLÉMENTAIRE POUR SMARTPHONES
+=========================== */
+@media (max-width: 500px) {
+    /* Réduction de la zone "À propos" */
+    .about {
+        padding: 2rem 0.8rem; /* 🔹 un peu plus d'espace global */
+    }
+
+    .about-container {
+        max-width: 95%;
+    }
+
+    .about-text p {
+        font-size: 0.85rem;
+        line-height: 1.5; /* 🔹 un peu plus d’aération */
+        padding: 0 1.2rem; /* 🔹 marge horizontale augmentée */
+    }
+
+    /* Ajustement du bloc hobbies */
+    .hobbies {
+        padding: 1.4rem 1.2rem; /* 🔹 plus équilibré avec le texte */
+    }
+
+    .hobby-slider {
+        gap: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .hobby-card {
+        flex: 0 0 160px;
+        padding: 0.7rem;
+    }
+
+    .hobby-card h4 {
+        font-size: 0.9rem;
+    }
+
+    .hobby-card p {
+        font-size: 0.75rem;
+    }
+
+    .hobby-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+
+/* === Correction du slider "Projets académiques" === */
+
+/* ✅ Cas général : mobile — évite la coupure du premier projet */
+@media (max-width: 900px) {
+    .project-slider {
+        justify-content: flex-start;
+        padding-left: 0.8rem;
+        scroll-padding-left: 0.8rem;
+    }
+
+    .project-card:first-child {
+        margin-left: 0.2rem;
+    }
+
+    .project-card:last-child {
+        margin-right: 0.8rem;
+    }
+}
+
+/* ✅ Cas PC — reste centré proprement */
+@media (min-width: 901px) {
+    .project-slider {
+        justify-content: center;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .project-card:first-child,
+    .project-card:last-child {
+        margin: 0;
+    }
 }
