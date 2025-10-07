@@ -1,39 +1,16 @@
 /* ===========================
    BASE GÉNÉRALE
 =========================== */
-* {
-    box-sizing: border-box;
-}
-
+* { box-sizing: border-box; }
 body {
     font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #1e293b;
-    background-color: #f8fafc;
+    margin: 0; padding: 0;
+    color: #1e293b; background-color: #f8fafc;
     scroll-behavior: smooth;
 }
-
-/* ✅ toutes les images s'adaptent sans déborder */
-img {
-    max-width: 100%;
-    height: auto;
-    display: inline-block;
-}
-
-/* ✅ pour les petits logos et icônes */
-.logo, .icon, nav img, footer img {
-    max-height: 40px;
-    width: auto;
-}
-
-/* ✅ pour les logos dans les liens (comme ton PDF) */
-a img {
-    vertical-align: middle;
-    max-height: 28px;
-    margin-right: 6px;
-}
-
+img { max-width: 100%; height: auto; display: inline-block; }
+.logo, .icon, nav img, footer img { max-height: 40px; width: auto; }
+a img { vertical-align: middle; max-height: 28px; margin-right: 6px; }
 
 /* ===========================
    HEADER
@@ -44,68 +21,40 @@ header {
     background: linear-gradient(135deg, #3b82f6, #2563eb);
     color: white;
 }
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
+header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+header p { font-size: 1rem; }
 
 /* ===========================
    SECTION "À PROPOS"
 =========================== */
 .about {
-    padding: 5rem 3rem; /* un peu plus d'espace global */
+    padding: 3rem 1rem;
     display: flex;
     justify-content: center;
 }
-
 .about-container {
     display: flex;
     flex-wrap: wrap;
     max-width: 1200px;
-    gap: 3rem;
-    align-items: center;          /* ✅ centre la photo verticalement */
-    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
 }
-
-/* ✅ pour éviter que le texte soit trop collé verticalement */
 .about-text {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;      /* centre le bloc texte verticalement */
+    flex: 1; min-width: 280px;
+    display: flex; flex-direction: column; justify-content: center;
 }
-
-
-
 .profile-pic {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
-
-/* .about-text {
-    flex: 1;
-    min-width: 250px;
-} */
-
-.about-text h2 {
-    color: #2563eb;
-    margin-bottom: 1rem;
-    text-align: center; /* ✅ centre le titre */
-}
-
-
-.about-text p {
-    margin-bottom: 2rem;
-}
+.about-text h2 { color: #2563eb; margin-bottom: 1rem; text-align: center; }
+.about-text p { margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5; }
 
 /* ===========================
    HOBBIES
 =========================== */
+/* Conteneur global des hobbies */
 .hobbies {
     background-color: #f1f5f9;
     border-radius: 12px;
@@ -113,281 +62,106 @@ header h1 {
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     margin-top: 2rem;
 
-    /* ✅ Disposition flexible et fluide */
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-
-    /* ✅ Pas de scroll forcé si tout rentre */
-    overflow: visible;
-    max-height: none;
+    flex-direction: column;
+    align-items: center; /* ✅ centre le slider horizontalement */
 }
 
-@media (max-width: 900px) {
-    .hobbies {
-        flex-wrap: nowrap;       /* une seule ligne */
-        overflow-x: auto;        /* ✅ scroll horizontal seulement si besoin */
-        overflow-y: hidden;
-        scroll-behavior: smooth;
-        scroll-snap-type: x mandatory;
-        max-height: none;        /* pas de limite verticale */
-    }
-
-    .hobbies > div {
-        flex: 0 0 280px;         /* largeur fixe pour chaque carte */
-        scroll-snap-align: center;
-    }
-}
-
-
-
-.hobbies h3 {
-    color: #2563eb;
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-    text-align: center;
-}
-
+/* Slider horizontal */
 .hobby-slider {
     display: flex;
-    flex-direction: row;
+    flex-wrap: nowrap;
     overflow-x: auto;
     gap: 1.5rem;
-    padding-bottom: 1rem;
     scroll-behavior: smooth;
-    justify-content: flex-start;
+    padding-bottom: 1rem;
+
+    justify-content: center; /* ✅ centre les cartes horizontalement */
+    align-items: flex-start; /* évite l'étirement vertical */
 }
+
 
 .hobby-card {
-    flex: 0 0 260px;
+    flex: 0 0 220px;
     background-color: white;
     border-radius: 10px;
-    padding: 1.5rem;
+    padding: 1rem;
     text-align: center;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* ✅ centre verticalement le contenu */
+    align-items: center;     /* ✅ centre horizontalement le contenu */
 }
 
-.hobby-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-}
-
-.hobby-card h4 {
-    color: #1e3a8a;
-    margin-bottom: 0.5rem;
-}
-
-.hobby-card p {
-    font-size: 0.9rem;
-    color: #475569;
-}
-
-.hobby-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 0.8rem;
-}
-
-/* Scrollbar personnalisée */
-.hobby-slider::-webkit-scrollbar {
-    height: 8px;
-}
-.hobby-slider::-webkit-scrollbar-thumb {
-    background: #2563eb;
-    border-radius: 10px;
-}
-.hobby-slider::-webkit-scrollbar-track {
-    background: #e2e8f0;
-}
+.hobby-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+.hobby-card h4 { color: #1e3a8a; margin-bottom: 0.5rem; font-size: 1rem; }
+.hobby-card p { font-size: 0.85rem; color: #475569; }
+.hobby-icon { width: 36px; height: 36px; margin-bottom: 0.5rem; }
+.hobby-slider::-webkit-scrollbar { height: 6px; }
+.hobby-slider::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; }
+.hobby-slider::-webkit-scrollbar-track { background: #e2e8f0; }
 
 /* ===========================
    PROJETS ACADÉMIQUES
 =========================== */
-.projects {
-    padding: 4rem 2rem;
-    background-color: #ffffff;
-    text-align: center;
-}
-
-.projects h2 {
-    color: #2563eb;
-    margin-bottom: 2rem;
-}
-
-/* Slider horizontal + centrage */
+.projects { padding: 3rem 1rem; background-color: #ffffff; text-align: center; }
+.projects h2 { color: #2563eb; margin-bottom: 1.5rem; font-size: 1.5rem; }
 .project-slider {
-    display: flex;
-    justify-content: center;        /* centre les cartes si peu d'éléments */
-    flex-wrap: nowrap;              /* empêche le retour à la ligne */
-    overflow-x: auto;               /* scroll horizontal */
-    gap: 2rem;
-    padding: 1rem 0;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;  /* effet snap au scroll */
+    display: flex; flex-wrap: nowrap; overflow-x: auto;
+    gap: 1rem; scroll-behavior: smooth; scroll-snap-type: x mandatory; padding: 0.5rem 0;
 }
-
-/* Style des cartes */
 .project-card {
-    flex: 0 0 320px;
-    scroll-snap-align: center;      /* alignement au centre au scroll */
-    background-color: #f1f5f9;
-    border-radius: 15px;
-    padding: 1.5rem;
-    text-align: left;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    flex: 0 0 280px; scroll-snap-align: center;
+    background-color: #f1f5f9; border-radius: 12px;
+    padding: 1rem; text-align: left; box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    display: flex; flex-direction: column; gap: 0.7rem;
 }
+.project-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+.project-card h3 { margin-bottom: 0.3rem; color: #1e40af; font-size: 1.1rem; }
+.project-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+.project-links a img { height: 28px; transition: transform 0.2s ease; }
+.project-links a img:hover { transform: scale(1.1); }
+.project-media { display: flex; flex-direction: column; gap: 0.5rem; }
+.project-cover { width: 100%; height: auto; max-height: 180px; border-radius: 10px; object-fit: contain; background-color: #e2e8f0; }
+.project-video { width: 100%; max-height: 200px; border-radius: 10px; object-fit: contain; }
+.rlbot-cover { display: block; width: auto; max-width: 100%; height: 120px; object-fit: contain; border-radius: 10px; margin: 0 auto; }
 
-.project-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-}
-
-.project-card h3 {
-    margin-bottom: 0.5rem;
-    color: #1e40af;
-}
-
-/* Liens vers les rapports / GitHub */
-.project-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-}
-
-.project-links a {
-    text-decoration: none;
-    color: #1e3a8a;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.project-links a:hover {
-    color: #2563eb;
-}
-
-.project-links img {
-    height: 32px;
-    transition: transform 0.2s ease;
-}
-.project-links img:hover {
-    transform: scale(1.1);
-}
-
-/* Médias (images / vidéos) */
-.project-media {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.project-cover {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-    border-radius: 12px;
-    object-fit: contain;
-    background-color: #e2e8f0;
-}
-
-.project-video {
-    width: 100%;
-    max-height: 250px;
-    border-radius: 12px;
-    object-fit: contain;
-}
-
-/* Images spécifiques Rocket League */
-.rlbot-cover {
-    display: block;
-    width: auto;
-    max-width: 100%;
-    height: 120px;
-    object-fit: contain;
-    border-radius: 12px;
-    margin: 0 auto;
-}
-
-/* Scrollbar des projets */
-.project-slider::-webkit-scrollbar {
-    height: 10px;
-}
-.project-slider::-webkit-scrollbar-thumb {
-    background: #2563eb;
-    border-radius: 10px;
-}
-.project-slider::-webkit-scrollbar-track {
-    background: #e2e8f0;
-}
+/* Scrollbar projets */
+.project-slider::-webkit-scrollbar { height: 8px; }
+.project-slider::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; }
+.project-slider::-webkit-scrollbar-track { background: #e2e8f0; }
 
 /* ===========================
    FOOTER
 =========================== */
 footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    background-color: #e2e8f0;
-    color: #475569;
-    margin-top: 3rem;
-    border-top: 1px solid #cbd5e1;
+    text-align: center; padding: 2rem 1rem;
+    background-color: #e2e8f0; color: #475569;
+    margin-top: 2rem; border-top: 1px solid #cbd5e1;
 }
-
-footer h3 {
-    color: #2563eb;
-    margin-bottom: 1rem;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.contact-links a {
-    text-decoration: none;
-    color: #1e3a8a;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: color 0.3s;
-}
-
-.contact-links a:hover {
-    color: #2563eb;
-}
-
-footer p {
-    font-size: 0.85rem;
-    color: #475569;
-}
+footer h3 { color: #2563eb; margin-bottom: 1rem; }
+.contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
+.contact-links a { text-decoration: none; color: #1e3a8a; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s; }
+.contact-links a:hover { color: #2563eb; }
+footer p { font-size: 0.85rem; color: #475569; }
 
 /* ===========================
    RESPONSIVE DESIGN
 =========================== */
-@media (max-width: 700px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hobby-icons {
-        justify-content: center;
-    }
-
-    .project-slider {
-        justify-content: flex-start;
-        padding: 1rem;
-    }
+@media (max-width: 900px) {
+    .about-container { flex-direction: column; text-align: center; }
+    .profile-pic { width: 160px; height: 160px; }
+    .about-text p { font-size: 0.9rem; }
+}
+@media (max-width: 600px) {
+    .hobby-card { flex: 0 0 180px; padding: 0.8rem; }
+    .hobby-card h4 { font-size: 0.95rem; }
+    .hobby-card p { font-size: 0.8rem; }
+    .project-card { flex: 0 0 220px; padding: 0.8rem; }
+    .project-card h3 { font-size: 1rem; }
+    .project-cover, .project-video { max-height: 150px; }
+    .rlbot-cover { height: 100px; }
 }
