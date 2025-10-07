@@ -1,15 +1,13 @@
 /* ===========================
    BASE GÉNÉRALE
 =========================== */
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
     font-family: 'Poppins', sans-serif;
-    margin: 0; padding: 0;
     color: #1e293b; background-color: #f8fafc;
     scroll-behavior: smooth;
 }
-img { max-width: 100%; height: auto; display: inline-block; }
-.logo, .icon, nav img, footer img { max-height: 40px; width: auto; }
+img, video { max-width: 100%; height: auto; display: block; }
 a img { vertical-align: middle; max-height: 28px; margin-right: 6px; }
 
 /* ===========================
@@ -17,39 +15,41 @@ a img { vertical-align: middle; max-height: 28px; margin-right: 6px; }
 =========================== */
 header {
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 2.5rem 1rem;
     background: linear-gradient(135deg, #3b82f6, #2563eb);
     color: white;
 }
-header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
 header p { font-size: 1rem; }
 
 /* ===========================
    SECTION "À PROPOS"
 =========================== */
 .about {
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
     display: flex;
     justify-content: center;
 }
 .about-container {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     max-width: 1200px;
     gap: 2rem;
     align-items: center;
     justify-content: center;
 }
-.about-text {
-    flex: 1; min-width: 280px;
-    display: flex; flex-direction: column; justify-content: center;
-}
 .profile-pic {
-    width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
+    width: 160px; height: 160px; border-radius: 50%; object-fit: cover;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
+.about-text {
+    flex: 1; min-width: 280px;
+    display: flex; flex-direction: column;
+    justify-content: center;
+}
 .about-text h2 { color: #2563eb; margin-bottom: 1rem; text-align: center; }
-.about-text p { margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5; }
+.about-text p { font-size: 0.9rem; line-height: 1.5; margin-bottom: 2rem; }
 
 /* ===========================
    HOBBIES
@@ -57,128 +57,104 @@ header p { font-size: 1rem; }
 .hobbies {
     background-color: #f1f5f9;
     border-radius: 12px;
-    padding: 2rem;
+    padding: 1.5rem;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .hobbies h3 {
     color: #2563eb;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
     text-align: center;
 }
-
-
-/* === Slider des hobbies (version finale responsive) === */
 .hobby-slider {
     display: flex;
-    flex-wrap: nowrap;
+    gap: 1rem;
     overflow-x: auto;
-    gap: 1.2rem;
-    scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
+    padding-bottom: 0.5rem;
 }
-
-/* Apparence des cartes */
 .hobby-card {
-    flex: 0 0 220px;
+    flex: 0 0 160px;
     background-color: white;
     border-radius: 10px;
-    padding: 1rem;
+    padding: 0.7rem;
     text-align: center;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     scroll-snap-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.hobby-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
-.hobby-card h4 { color: #1e3a8a; margin-bottom: 0.5rem; font-size: 1rem; }
-.hobby-card p { font-size: 0.85rem; color: #475569; }
-.hobby-icon { width: 36px; height: 36px; margin-bottom: 0.5rem; }
+.hobby-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+.hobby-card h4 { color: #1e3a8a; margin-bottom: 0.3rem; font-size: 0.9rem; }
+.hobby-card p { font-size: 0.75rem; color: #475569; }
+.hobby-icon { width: 28px; height: 28px; margin-bottom: 0.3rem; }
 
 /* Scrollbar esthétique */
 .hobby-slider::-webkit-scrollbar { height: 6px; }
 .hobby-slider::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; }
 .hobby-slider::-webkit-scrollbar-track { background: #e2e8f0; }
 
-/* === Responsive : MOBILE === */
-@media (max-width: 900px) {
-    .hobby-slider {
-        justify-content: flex-start;
-        padding-left: 0.8rem;
-        scroll-padding-left: 0.8rem;
-    }
-
-    .hobby-card:first-child {
-        margin-left: 0.2rem;
-    }
-
-    .hobby-card:last-child {
-        margin-right: 0.8rem;
-    }
-}
-
-/* === Responsive : PC === */
-@media (min-width: 901px) {
-    .hobby-slider {
-        justify-content: center;
-        padding-left: 0;
-        margin-left: 0;
-    }
-
-    .hobby-card:first-child,
-    .hobby-card:last-child {
-        margin: 0;
-    }
-}
-
 /* ===========================
    PROJETS ACADÉMIQUES
 =========================== */
-.projects { padding: 3rem 1rem; background-color: #ffffff; text-align: center; }
-.projects h2 { color: #2563eb; margin-bottom: 1.5rem; font-size: 1.5rem; }
+.projects {
+    padding: 2.5rem 1rem;
+    background-color: #ffffff;
+    text-align: center;
+}
+.projects h2 {
+    color: #2563eb;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
 .project-slider {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
     gap: 1rem;
-    scroll-behavior: smooth;
+    overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 0.5rem 0;
-    justify-content: center;
+    padding-bottom: 0.5rem;
 }
-@media (min-width: 1200px) {
-    .project-slider {
-        justify-content: center;
-    }
-}
-
 .project-card {
-    flex: 0 0 280px; scroll-snap-align: center;
-    background-color: #f1f5f9; border-radius: 12px;
-    padding: 1rem; text-align: left; box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    flex: 0 0 220px;
+    scroll-snap-align: center;
+    background-color: #f1f5f9;
+    border-radius: 12px;
+    padding: 0.8rem;
+    text-align: left;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; flex-direction: column; gap: 0.7rem;
 }
-.project-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
-.project-card h3 { margin-bottom: 0.3rem; color: #1e40af; font-size: 1.1rem; }
-.project-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+.project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+.project-card h3 { margin-bottom: 0.3rem; color: #1e40af; font-size: 1rem; }
+.project-links { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; }
 .project-links a img { height: 28px; transition: transform 0.2s ease; }
 .project-links a img:hover { transform: scale(1.1); }
 .project-media { display: flex; flex-direction: column; gap: 0.5rem; }
-.project-cover { width: 100%; height: auto; max-height: 180px; border-radius: 10px; object-fit: contain; background-color: #e2e8f0; }
-.project-video { width: 100%; max-height: 200px; border-radius: 10px; object-fit: contain; }
-.rlbot-cover { display: block; width: auto; max-width: 100%; height: 120px; object-fit: contain; border-radius: 10px; margin: 0 auto; }
+.project-cover, .project-video {
+    width: 100%;
+    max-height: 150px;
+    border-radius: 10px;
+    object-fit: contain;
+    background-color: #e2e8f0;
+}
+.rlbot-cover { height: 100px; margin: 0 auto; }
 
 /* Scrollbar projets */
-.project-slider::-webkit-scrollbar { height: 8px; }
+.project-slider::-webkit-scrollbar { height: 6px; }
 .project-slider::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; }
 .project-slider::-webkit-scrollbar-track { background: #e2e8f0; }
 
@@ -186,112 +162,45 @@ header p { font-size: 1rem; }
    FOOTER
 =========================== */
 footer {
-    text-align: center; padding: 2rem 1rem;
-    background-color: #e2e8f0; color: #475569;
-    margin-top: 2rem; border-top: 1px solid #cbd5e1;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: #e2e8f0;
+    color: #475569;
+    border-top: 1px solid #cbd5e1;
 }
 footer h3 { color: #2563eb; margin-bottom: 1rem; }
-.contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
-.contact-links a { text-decoration: none; color: #1e3a8a; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s; }
+.contact-links {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 0.5rem;
+}
+.contact-links a {
+    text-decoration: none; color: #1e3a8a; font-weight: 500;
+    display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s;
+}
 .contact-links a:hover { color: #2563eb; }
-footer p { font-size: 0.85rem; color: #475569; }
+footer p { font-size: 0.85rem; }
 
 /* ===========================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN GLOBAL
 =========================== */
 @media (max-width: 900px) {
     .about-container { flex-direction: column; text-align: center; }
-    .profile-pic { width: 160px; height: 160px; }
-    .about-text p { font-size: 0.9rem; }
+    .profile-pic { width: 140px; height: 140px; }
+    .about-text p { font-size: 0.85rem; }
+    .hobby-card { flex: 0 0 140px; padding: 0.6rem; }
+    .hobby-card h4 { font-size: 0.85rem; }
+    .hobby-card p { font-size: 0.7rem; }
+    .hobby-icon { width: 24px; height: 24px; }
+    .project-card { flex: 0 0 180px; padding: 0.7rem; }
+    .project-card h3 { font-size: 0.95rem; }
+    .project-cover, .project-video { max-height: 120px; }
+    .rlbot-cover { height: 80px; }
 }
-@media (max-width: 600px) {
-    .hobby-card { flex: 0 0 180px; padding: 0.8rem; }
-    .hobby-card h4 { font-size: 0.95rem; }
-    .hobby-card p { font-size: 0.8rem; }
-    .project-card { flex: 0 0 220px; padding: 0.8rem; }
-    .project-card h3 { font-size: 1rem; }
-    .project-cover, .project-video { max-height: 150px; }
-    .rlbot-cover { height: 100px; }
-}
-
-/* ===========================
-   RESPONSIVE SUPPLÉMENTAIRE POUR SMARTPHONES
-=========================== */
 @media (max-width: 500px) {
-    /* Réduction de la zone "À propos" */
-    .about {
-        padding: 2rem 0.8rem; /* 🔹 un peu plus d'espace global */
-    }
-
-    .about-container {
-        max-width: 95%;
-    }
-
-    .about-text p {
-        font-size: 0.85rem;
-        line-height: 1.5; /* 🔹 un peu plus d’aération */
-        padding: 0 1.2rem; /* 🔹 marge horizontale augmentée */
-    }
-
-    /* Ajustement du bloc hobbies */
-    .hobbies {
-        padding: 1.4rem 1.2rem; /* 🔹 plus équilibré avec le texte */
-    }
-
-    .hobby-slider {
-        gap: 1rem;
-        padding-bottom: 0.5rem;
-    }
-
-    .hobby-card {
-        flex: 0 0 160px;
-        padding: 0.7rem;
-    }
-
-    .hobby-card h4 {
-        font-size: 0.9rem;
-    }
-
-    .hobby-card p {
-        font-size: 0.75rem;
-    }
-
-    .hobby-icon {
-        width: 28px;
-        height: 28px;
-    }
-}
-
-
-/* === Correction du slider "Projets académiques" === */
-
-/* ✅ Cas général : mobile — évite la coupure du premier projet */
-@media (max-width: 900px) {
-    .project-slider {
-        justify-content: flex-start;
-        padding-left: 0.8rem;
-        scroll-padding-left: 0.8rem;
-    }
-
-    .project-card:first-child {
-        margin-left: 0.2rem;
-    }
-
-    .project-card:last-child {
-        margin-right: 0.8rem;
-    }
-}
-
-/* ✅ Cas PC — reste centré proprement */
-@media (min-width: 901px) {
-    .project-slider {
-        justify-content: center;
-        padding-left: 0;
-        margin-left: 0;
-    }
-
-    .project-card:first-child,
-    .project-card:last-child {
-        margin: 0;
-    }
+    header h1 { font-size: 1.7rem; }
+    header p { font-size: 0.9rem; }
+    .about { padding: 1.5rem 1rem; }
+    .about-text p { padding: 0 0.8rem; }
+    .hobbies { padding: 1rem; }
+    .hobby-slider { gap: 0.8rem; padding-bottom: 0.3rem; }
+    .project-slider { gap: 0.8rem; padding-bottom: 0.3rem; }
 }
