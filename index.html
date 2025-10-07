@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Sami ABDUL-SALAM</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Lien vers Font Awesome -->
+    <script src="https://kit.fontawesome.com/a2e0c6cdbb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Sami ABDUL-SALAM</h1>
+        <p>Ingénieur diplômé en informatique — spécialisation Génie Logiciel</p>
+    </header>
+
+    <section class="about">
+        <div class="about-container">
+            <img src="images/Myself/myself.png" alt="Photo de Sami" class="profile-pic">
+            <div class="about-text">
+                <h2>À propos de moi</h2>
+                <p>
+                    Je suis récemment diplômé de l’ISIMA (Institut Supérieur d’Informatique, de Modélisation et de leurs Applications), école d’ingénieurs en informatique,
+                    où je me suis spécialisé en génie logiciel.  
+                    Passionné par le développement et les nouvelles technologies, j’aime concevoir des solutions dans le domaine de l’informatique,
+                    voir du code prendre vie et constater toute la logique et la puissance qu’il peut renfermer.  
+                    J’accorde une réelle importance à ma croissance personnelle, ce qui inclut aussi bien
+                    le développement de mes compétences techniques que tout ce qui gravite autour du milieu professionnel et humain.
+                </p>
+
+
+                <div class="hobbies">
+                    <h3>Mes centres d’intérêt</h3>
+                    <div class="hobby-slider">
+
+                        <div class="hobby-card">
+                            <img src="icons/dumbbell.svg" alt="Workout" class="hobby-icon">
+                            <h4>Workout & Musculation</h4>
+                            <p>J’aime repousser mes limites, suivre une routine et constater les progrès physiques et mentaux qu’apporte la discipline.</p>
+                        </div>
+
+                        <div class="hobby-card">
+                            <img src="icons/db.png" alt="Manga & Animé" class="hobby-icon">
+                            <h4>Manga & Animé</h4>
+                            <p>Univers variés, personnages marquants et émotions fortes, une vraie source d’inspiration et d’imaginaire.</p>
+                        </div>
+
+                        <div class="hobby-card">
+                            <img src="icons/controller.svg" alt="Jeux vidéo" class="hobby-icon">
+                            <h4>Jeux vidéo</h4>
+                            <p>Un moyen d’exploration, de réflexion et de détente. J’aime comprendre les mécaniques et l’univers derrière chaque jeu, ainsi que l’esprit d’équipe et la compétition qu’ils peuvent offrir.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <h2>Projets académiques</h2>
+        <div class="project-slider">
+
+            <!-- Emergency Evacuation -->
+            <div class="project-card">
+                <h3>Emergency Evacuation (VR)</h3>
+                <p>Stage à l’UiT (Norvège) réalisé avec Unity pour un casque VR Meta Quest 3. Le projet exploite les technologies de réalité mixte pour simuler une évacuation, permettant aux utilisateurs de trouver l'issus de secours la plus proche du bâtiment de l'université.</p>
+                <div class="project-links">
+                    <a href="reports/sami-emergency.pdf" target="_blank">
+                        <img src="icons/pdf.png" alt="Rapport PDF" style="height: 32px; vertical-align: middle;">
+                    </a>
+
+                    <a href="reports/remi-emergency.pdf" target="_blank">
+                        <img src="icons/pdf.png" alt="Rapport PDF" style="height: 32px; vertical-align: middle;">
+                    </a>
+                    <a href="https://github.com/SamiLumine/Emergency-Evacuation" target="_blank">
+                        <img src="icons/github-mark.svg" alt="GitHub" style="height: 32px; vertical-align: middle;">
+                    </a>
+                </div>
+                <div class="project-media">
+                    <!-- <img src="images/Emergency/Unity-Scene.png" alt="Emergency Evacuation VR" class="project-cover"> -->
+                    <video controls class="project-video">
+                        <source src="videos/emergency.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <!-- OpenFoodFacts / Nutri-Score -->
+            <div class="project-card">
+                <h3>Recherche produit OpenFoodFacts et calcul Nutri-Score</h3>
+                <p>Application Spring Boot interrogeant OpenFoodFacts pour calculer le Nutri-Score d’un produit à partir de son code-barres.</p>
+                <div class="project-links">
+                    <a href="https://github.com/SamiLumine/Projet-OpenFoodFacts" target="_blank">
+                        <img src="icons/github-mark.svg" alt="GitHub" style="height: 32px; vertical-align: middle;">
+                    </a>
+                </div>
+                <div class="project-media">
+                    <img src="images/projet-java.png" alt="OpenFoodFacts & Nutri-Score" class="project-cover">
+                </div>
+            </div>
+
+            <!-- IA Rocket League -->
+            <div class="project-card">
+                <h3>IA jouant à Rocket League</h3>
+                <p>Projet visant à entraîner une IA capable de jouer à Rocket League à l’aide de techniques d’apprentissage par renforcement.</p>
+                <div class="project-links">
+                    <a href="reports/RLBOT_Project.pdf" target="_blank">
+                        <img src="icons/pdf.png" alt="Rapport PDF" style="height: 32px; vertical-align: middle;">
+                    </a>
+                    <a href="https://github.com/xerneas02/RlGym" target="_blank">
+                        <img src="icons/github-mark.svg" alt="GitHub" style="height: 32px; vertical-align: middle;">
+                    </a>
+                </div>
+                <div class="project-media">
+                    <img src="images/RLBot/tensorboard.png" alt="IA Rocket League" class="project-cover rlbot-cover">
+                    <video controls class="project-video">
+                        <source src="images/RLBot/bot touch the ball.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            
+            <!-- Murder - Simulation Multi Agents -->
+            <div class="project-card">
+                <h3>Murder – Simulation Multi-Agents</h3>
+                <p>Logiciel simulant le jeu Murder, avec des agents aux rôles et comportements distincts.</p>
+                <div class="project-links">
+                    <a href="reports/Rapport_Amogus.pdf" target="_blank">
+                        <img src="icons/pdf.png" alt="Rapport PDF" style="height: 32px; vertical-align: middle;">
+                    </a>
+                    <a href="https://github.com/Silver-Ink/Murder_SMA_Raylib/" target="_blank">
+                        <img src="icons/github-mark.svg" alt="GitHub" style="height: 32px; vertical-align: middle;">
+                    </a>
+                </div>
+                <div class="project-media">
+                    <img src="images/Amogus/BIGamogus_blank.png" alt="IA Rocket League" class="project-cover rlbot-cover">
+                    <img src="images/Amogus/image2.png" alt="IA Rocket League" class="project-cover rlbot-cover">
+
+                </div>
+            </div>
+
+            <!-- Jeu d’arcade SDL2 -->
+            <div class="project-card">
+                <h3>Jeu d’arcade SDL2</h3>
+                <p>Projet de première année à l’ISIMA, étant un jeu codé en langage C utilisant SDL2, où l’on collecte des pièces et explore différents niveaux.</p>
+                <div class="project-links">
+                    <a href="https://github.com/Le-Riz/ProjetZZ1" target="_blank">
+                        <img src="icons/github-mark.svg" alt="GitHub" style="height: 32px; vertical-align: middle;">
+                    </a>
+                </div>
+                <div class="project-media">
+                    <video controls class="project-video">
+                        <source src="videos/arcade1.mp4" type="video/mp4">
+                    </video>
+                    <video controls class="project-video">
+                        <source src="videos/arcade2.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <footer>
+        <h3>Contact</h3>
+        <div class="contact-links">
+            <a href="mailto:sami.abdul-salam@etu.uca.fr"><i class="fas fa-envelope"></i> sami.abdul-salam@etu.uca.fr</a>
+            <a href="https://linkedin.com/in/sami-abdul-salam-b9332b298" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/SamiLumine" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+        <p>2025 - Sami ABDUL-SALAM</p>
+    </footer>
+</body>
+</html>
