@@ -31,6 +31,7 @@ header p { font-size: 1rem; }
     padding: 3rem 1rem;
     display: flex;
     justify-content: center;
+     padding: 1rem; 
 }
 .about-container {
     display: flex;
@@ -51,57 +52,124 @@ header p { font-size: 1rem; }
 .about-text h2 { color: #2563eb; margin-bottom: 1rem; text-align: center; }
 .about-text p { margin-bottom: 2rem; font-size: 0.95rem; line-height: 1.5; }
 
+/* Responsive pour la section "À Propos" */
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column; /* Aligne les éléments verticalement */
+        text-align: center;     /* Centre le texte pour les petits écrans */
+    }
+    .profile-pic {
+        width: 140px;         /* Réduit la taille de l'image sur les petits écrans */
+        height: 140px;        /* Assure une taille proportionnelle */
+    }
+    .about-text p {
+        font-size: 0.9rem;    /* Réduit légèrement la taille de la police */
+    }
+}
+
 /* ===========================
    HOBBIES
 =========================== */
-/* Conteneur global des hobbies */
 .hobbies {
     background-color: #f1f5f9;
     border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    padding: 3rem 1rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     margin-top: 2rem;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* ✅ centre le slider horizontalement */
+    text-align: center;
 }
 
-/* Slider horizontal */
+.hobbies h3 {
+    color: #2563eb;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
 .hobby-slider {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 1.5rem;
-    scroll-behavior: smooth;
-    padding-bottom: 1rem;
-
-    justify-content: center; /* ✅ centre les cartes horizontalement */
-    align-items: flex-start; /* évite l'étirement vertical */
+    flex-wrap: wrap; /* Permet de passer à la ligne */
+    gap: 1rem;       /* Espace entre les cartes */
+    justify-content: center; /* Centre le contenu horizontalement */
+    padding: 0.5rem 0;  
 }
 
-
+/* Cartes */
 .hobby-card {
-    flex: 0 0 220px;
-    background-color: white;
-    border-radius: 10px;
+    flex: 1 1 250px;    /* Ajuste la largeur des cartes, avec une taille de base de 250px */
+    max-width: 300px;   /* Largeur maximale pour éviter qu'elles ne deviennent trop larges */
+    background-color: #ffffff;
+    border-radius: 12px;
     padding: 1rem;
-    text-align: center;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-
+    text-align: left;          
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* ✅ centre verticalement le contenu */
-    align-items: center;     /* ✅ centre horizontalement le contenu */
+    gap: 0.7rem;
+    justify-content: center;   
+    align-items: center;       
 }
 
-.hobby-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
-.hobby-card h4 { color: #1e3a8a; margin-bottom: 0.5rem; font-size: 1rem; }
-.hobby-card p { font-size: 0.85rem; color: #475569; }
-.hobby-icon { width: 36px; height: 36px; margin-bottom: 0.5rem; }
-.hobby-slider::-webkit-scrollbar { height: 6px; }
-.hobby-slider::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; }
-.hobby-slider::-webkit-scrollbar-track { background: #e2e8f0; }
+.hobby-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.hobby-card h4 {
+    color: #1e40af;
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+}
+
+.hobby-card p {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.4;
+    text-align: center;       
+}
+
+.hobby-icon {
+    width: 40px;
+    height: 40px;
+}
+
+/* Scrollbar personnalisée */
+.hobby-slider::-webkit-scrollbar {
+    height: 8px;
+}
+.hobby-slider::-webkit-scrollbar-thumb {
+    background: #2563eb; /* Couleur de la barre */
+    border-radius: 10px;
+}
+.hobby-slider::-webkit-scrollbar-track {
+    background: #e2e8f0; /* Couleur du fond */
+}
+
+/* Responsive : ajustements pour les petits écrans */
+@media (max-width: 900px) {
+    .hobby-card {
+        flex: 1 1 200px; /* Ajuste la largeur des cartes pour les écrans moyens */
+    }
+}
+
+@media (max-width: 600px) {
+    .hobby-card {
+        flex: 1 1 150px; /* Ajuste davantage pour les petits écrans */
+        padding: 0.5rem;  /* Ajuste le rembourrage */
+    }
+
+    .hobbies h3 {
+        font-size: 1.2rem; /* Ajuste la taille du titre des loisirs */
+    }
+
+    .hobby-card h4 {
+        font-size: 1rem;   /* Ajuste la taille du titre de la carte */
+    }
+
+    .hobby-card p {
+        font-size: 0.8rem; /* Ajuste la taille du texte dans les cartes */
+    }
+}
 
 /* ===========================
    PROJETS ACADÉMIQUES
@@ -165,21 +233,3 @@ footer h3 { color: #2563eb; margin-bottom: 1rem; }
 .contact-links a { text-decoration: none; color: #1e3a8a; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s; }
 .contact-links a:hover { color: #2563eb; }
 footer p { font-size: 0.85rem; color: #475569; }
-
-/* ===========================
-   RESPONSIVE DESIGN
-=========================== */
-@media (max-width: 900px) {
-    .about-container { flex-direction: column; text-align: center; }
-    .profile-pic { width: 160px; height: 160px; }
-    .about-text p { font-size: 0.9rem; }
-}
-@media (max-width: 600px) {
-    .hobby-card { flex: 0 0 180px; padding: 0.8rem; }
-    .hobby-card h4 { font-size: 0.95rem; }
-    .hobby-card p { font-size: 0.8rem; }
-    .project-card { flex: 0 0 220px; padding: 0.8rem; }
-    .project-card h3 { font-size: 1rem; }
-    .project-cover, .project-video { max-height: 150px; }
-    .rlbot-cover { height: 100px; }
-}
